@@ -29,8 +29,20 @@
 }
 
 - (void) askButtonPressed:(UIButton *)sender {
-    NSString *text = [self.askContent text];
-    NSLog(@"%@", text);
+    NSString *content = [self.askContent text];
+    
+    [self sendQuestion:content];
+    
+    NSLog(@"%@", content);
     NSLog(@"Ask button pressed");
 }
+
+// Create new question in Parse
+- (void) sendQuestion:(NSString *)content {
+    PFObject *question = [PFObject objectWithClassName:@"Question"];
+    question[@"content"] = content;
+    question[@"parent"] = @"Parent";
+    [question saveInBackground];
+}
+
 @end

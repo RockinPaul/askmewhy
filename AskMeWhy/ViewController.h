@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface ViewController : UIViewController
 
@@ -16,6 +17,8 @@
 
 - (IBAction)questionsButtonPressed:(UIButton *)sender;
 - (IBAction)askButtonPressed:(UIButton *)sender;
+
+- (void) sendQuestion:(NSString *)question;
 
 @end
 
