@@ -24,4 +24,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) questionsButtonPressed:(UIButton *)sender {
+    NSLog(@"Questions button pressed");
+}
+
+- (void) askButtonPressed:(UIButton *)sender {
+    NSString *text = [self.askContent text];
+    NSLog(text);
+    NSLog(@"Ask button pressed");
+}
 @end

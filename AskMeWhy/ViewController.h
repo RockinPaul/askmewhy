@@ -10,6 +10,12 @@
 
 @interface ViewController : UIViewController
 
+@property (nonatomic) IBOutlet UIButton *questionsButton;
+@property (nonatomic) IBOutlet UIButton *askButton;
+@property (nonatomic) IBOutlet UITextView *askContent;
+
+- (IBAction)questionsButtonPressed:(UIButton *)sender;
+- (IBAction)askButtonPressed:(UIButton *)sender;
 
 @end
 
