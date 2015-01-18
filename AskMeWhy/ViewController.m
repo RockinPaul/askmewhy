@@ -30,7 +30,7 @@
 
 - (void) askButtonPressed:(UIButton *)sender {
     NSString *text = [self.askContent text];
-    NSLog(text);
+    NSLog(@"%@", text);
     NSLog(@"Ask button pressed");
 }
 @end

@@ -15,6 +15,7 @@
 		E9C81FD61A6BD321008B5291 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9C81FD51A6BD321008B5291 /* Images.xcassets */; };
 		E9C81FD91A6BD321008B5291 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9C81FD71A6BD321008B5291 /* LaunchScreen.xib */; };
 		E9C81FE51A6BD321008B5291 /* AskMeWhyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C81FE41A6BD321008B5291 /* AskMeWhyTests.m */; };
+		E9C81FF01A6BED9E008B5291 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C81FEF1A6BED9E008B5291 /* SignUpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,8 @@
 		E9C81FDE1A6BD321008B5291 /* AskMeWhyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AskMeWhyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C81FE31A6BD321008B5291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9C81FE41A6BD321008B5291 /* AskMeWhyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AskMeWhyTests.m; sourceTree = "<group>"; };
+		E9C81FEE1A6BED47008B5291 /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		E9C81FEF1A6BED9E008B5291 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 				E9C81FCA1A6BD321008B5291 /* AppDelegate.m */,
 				E9C81FCF1A6BD321008B5291 /* ViewController.h */,
 				E9C81FD01A6BD321008B5291 /* ViewController.m */,
+				E9C81FEE1A6BED47008B5291 /* SignUpViewController.h */,
+				E9C81FEF1A6BED9E008B5291 /* SignUpViewController.m */,
 				E9C81FD21A6BD321008B5291 /* Main.storyboard */,
 				E9C81FD51A6BD321008B5291 /* Images.xcassets */,
 				E9C81FD71A6BD321008B5291 /* LaunchScreen.xib */,
@@ -223,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9C81FCB1A6BD321008B5291 /* AppDelegate.m in Sources */,
+				E9C81FF01A6BED9E008B5291 /* SignUpViewController.m in Sources */,
 				E9C81FCE1A6BD321008B5291 /* AskMeWhy.xcdatamodeld in Sources */,
 				E9C81FD11A6BD321008B5291 /* ViewController.m in Sources */,
 				E9C81FC81A6BD321008B5291 /* main.m in Sources */,
