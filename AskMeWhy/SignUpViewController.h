@@ -11,6 +11,7 @@
 #endif
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface SignUpViewController : UIViewController
 

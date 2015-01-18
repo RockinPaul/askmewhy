@@ -20,6 +20,11 @@
     NSLog(@"%@", [self.usernameTextField text]);
     NSLog(@"%@", [self.passwordTextField text]);
     NSLog(@"Sign Up button pressed");
+    
+    // Parse create test object
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    testObject[@"foo"] = @"bar";
+    [testObject saveInBackground];
 }
 
 @end
