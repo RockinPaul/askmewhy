@@ -15,6 +15,7 @@
 
 @implementation SignUpViewController
 
+
 -(void)signUpButtonPressed:(UIButton *)sender {
     
     NSLog(@"%@", [self.usernameTextField text]);
@@ -26,6 +27,13 @@
     user[@"username"] = [self.usernameTextField text];
     user[@"password"] = [self.passwordTextField text];
     [user saveInBackground];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    // done button was pressed - dismiss keyboard
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

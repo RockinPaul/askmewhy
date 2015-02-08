@@ -13,7 +13,11 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface SignUpViewController : UIViewController
+@interface SignUpViewController : UIViewController <UITextFieldDelegate>
+
+@property (nonatomic, assign) id currentResponder; // current responder
+
+@property (nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic) IBOutlet UITextField *usernameTextField;
 @property (nonatomic) IBOutlet UITextField *passwordTextField;
