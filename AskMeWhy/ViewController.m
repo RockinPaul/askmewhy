@@ -52,6 +52,10 @@
 
 -(BOOL)textViewShouldBeginEditing:(UITextView *)textView {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    
+    if ([[textView text] isEqualToString:@"Write something..."]) {
+        [textView setText:nil];
+    }
     return YES;
 }
 

@@ -107,6 +107,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="askButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ro5-Qp-Loe"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhC-VQ-aM2">
                                         <rect key="frame" x="269" y="43" width="73" height="71"/>
@@ -120,7 +123,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" text="Write something...Да" translatesAutoresizingMaskIntoConstraints="NO" id="I6W-p7-nPT">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" text="Write something..." translatesAutoresizingMaskIntoConstraints="NO" id="I6W-p7-nPT">
                                         <rect key="frame" x="37" y="160" width="300" height="188"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
@@ -139,6 +142,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="p0M-Jv-Ylo"/>
                     <connections>
+                        <outlet property="askButton" destination="Q5r-Ye-Uha" id="rxd-Nd-4rb"/>
                         <outlet property="askContent" destination="I6W-p7-nPT" id="N0F-Pb-NeB"/>
                     </connections>
                 </viewController>
