@@ -109,7 +109,13 @@
 {
     [self.view setFrame:CGRectMake(0,0,320,460)];
 }
+// ==================================================================================================================
 
+// Dismiss on tap (have some questions)
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.usernameTextField endEditing:YES];
+    [self.passwordTextField endEditing:YES];
+}
 // ==================================================================================================================
 
 @end
