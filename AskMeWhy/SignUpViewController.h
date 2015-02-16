@@ -25,6 +25,8 @@
 
 - (IBAction)signUpButtonPressed:(UIButton *)sender;
 
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString;
+
 @end
 
 

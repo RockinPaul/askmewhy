@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextViewDelegate>
 
 @property (nonatomic) IBOutlet UIButton *questionsButton;
 @property (nonatomic) IBOutlet UIButton *askButton;

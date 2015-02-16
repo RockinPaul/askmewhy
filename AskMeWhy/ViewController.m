@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,5 +45,35 @@
     question[@"parent"] = @"Parent";
     [question saveInBackground];
 }
+
+
+// Move up the screen
+//Declare a delegate, assign your textField to the delegate and then include these methods
+
+-(BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    return YES;
+}
+
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
+    
+    [self.view endEditing:YES];
+    return YES;
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification
+{
+    // Assign new frame to your view
+    [self.view setFrame:CGRectMake(0,-110,320,460)]; //here taken -20 for example i.e. your view will be scrolled to -20. change its value according to your requirement.
+}
+
+-(void)keyboardDidHide:(NSNotification *)notification
+{
+    [self.view setFrame:CGRectMake(0,0,320,460)];
+}
+// ==================================================================================================================
+
 
 @end
