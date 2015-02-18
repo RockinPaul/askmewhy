@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
--(void)signUpButtonPressed:(UIButton *)sender {
+- (void)signInButtonPressed:(UIButton *)sender {
     
     NSLog(@"%@", [self.usernameTextField text]);
     NSLog(@"%@", [self.passwordTextField text]);
@@ -42,6 +42,19 @@
     }
     // Do segue
     //[self performSegueWithIdentifier: @"showMain" sender: self];
+    
+    if ([[[self.signInButton titleLabel] text] isEqualToString: @"Sign In"]) {
+        [self isUser:[self.usernameTextField text]];
+    }
+}
+
+- (void)signUpButtonPressed:(UIButton *)sender {
+    
+    [self.signUpLabel setText:nil];
+    [self.signUpButton setHidden:YES];
+    [self.signInButton setTitle: @"Sign Up" forState: UIControlStateNormal];
+    [self.signInButton setTitleColor:[UIColor colorWithRed:(39.0/255) green:(174.0/255) blue:(96.0/255) alpha:0.6 ]forState: UIControlStateNormal];
+    [self.signInButton setBackgroundImage:[UIImage imageNamed:@"TextField"] forState:UIControlStateNormal];
 }
 
 // Email validation
@@ -55,6 +68,26 @@
     return [emailTest evaluateWithObject:checkString];
 }
 // ==================================================================================================================
+
+// Search for user
+- (BOOL) isUser:(NSString *)email {
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query whereKey:@"username" equalTo:[self.usernameTextField text]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                NSLog(@"%@", object.objectId);
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    return NO;
+}
 
 // Dismiss keyboard
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

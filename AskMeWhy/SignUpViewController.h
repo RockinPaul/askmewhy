@@ -21,11 +21,15 @@
 
 @property (nonatomic) IBOutlet UITextField *usernameTextField;
 @property (nonatomic) IBOutlet UITextField *passwordTextField;
+@property (nonatomic) IBOutlet UIButton *signInButton;
+@property (nonatomic) IBOutlet UILabel *signUpLabel;
 @property (nonatomic) IBOutlet UIButton *signUpButton;
 
-- (IBAction)signUpButtonPressed:(UIButton *)sender;
+- (IBAction) signInButtonPressed:(UIButton *)sender;
+- (IBAction) signUpButtonPressed:(UIButton *)sender;
 
--(BOOL) NSStringIsValidEmail:(NSString *)checkString;
+- (BOOL) NSStringIsValidEmail:(NSString *)checkString;
+- (BOOL) isUser:(NSString *)email;
 
 @end
 

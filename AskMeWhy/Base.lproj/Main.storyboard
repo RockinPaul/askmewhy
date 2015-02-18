@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -20,12 +20,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" restorationIdentifier="username" image="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="ifD-4e-cPP">
-                                        <rect key="frame" x="68" y="240" width="253" height="57"/>
+                                        <rect key="frame" x="68" y="214" width="253" height="57"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" restorationIdentifier="password" image="TextField" translatesAutoresizingMaskIntoConstraints="NO" id="526-EP-V8V">
-                                        <rect key="frame" x="68" y="331" width="253" height="57"/>
+                                        <rect key="frame" x="68" y="279" width="253" height="57"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
@@ -36,7 +36,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="pass" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eXO-js-FlP">
-                                        <rect key="frame" x="68" y="331" width="253" height="57"/>
+                                        <rect key="frame" x="68" y="279" width="253" height="57"/>
                                         <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="23"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
@@ -45,7 +45,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="user" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RHK-xn-x8j">
-                                        <rect key="frame" x="68" y="240" width="253" height="57"/>
+                                        <rect key="frame" x="68" y="214" width="253" height="57"/>
                                         <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="23"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no"/>
@@ -54,15 +54,30 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yi-ml-BDF">
-                                        <rect key="frame" x="68" y="423" width="253" height="63"/>
+                                        <rect key="frame" x="68" y="356" width="253" height="63"/>
                                         <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="24"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="Sign in" backgroundImage="button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="signUpButtonPressed:" destination="age-yr-dGY" eventType="touchUpInside" id="oce-Zq-6NS"/>
+                                            <action selector="signInButtonPressed:" destination="age-yr-dGY" eventType="touchUpInside" id="neP-Of-AmG"/>
                                             <segue destination="BYZ-38-t0r" kind="show" identifier="showMain" id="PFR-tk-RVo"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Are you newcomer? Let's" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yr-95-NJN">
+                                        <rect key="frame" x="68" y="463" width="196" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iL-wa-PcU">
+                                        <rect key="frame" x="272" y="459" width="55" height="30"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signUpButtonPressed:" destination="age-yr-dGY" eventType="touchUpInside" id="b3u-aM-plT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -73,7 +88,9 @@
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="eXO-js-FlP" id="RY1-yT-tqQ"/>
-                        <outlet property="signUpButton" destination="9yi-ml-BDF" id="1J8-hl-ur4"/>
+                        <outlet property="signInButton" destination="9yi-ml-BDF" id="s7F-1N-ilj"/>
+                        <outlet property="signUpButton" destination="5iL-wa-PcU" id="blk-DP-1g7"/>
+                        <outlet property="signUpLabel" destination="0yr-95-NJN" id="bvI-vX-bbD"/>
                         <outlet property="usernameTextField" destination="RHK-xn-x8j" id="en3-s5-tDI"/>
                     </connections>
                 </viewController>
