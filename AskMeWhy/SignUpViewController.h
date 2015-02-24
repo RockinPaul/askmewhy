@@ -32,9 +32,13 @@
 - (IBAction) signUpButtonPressed:(UIButton *)sender;
 
 - (BOOL) NSStringIsValidEmail:(NSString *)checkString;
-- (BOOL) isUser:(NSString *)email;
+
+//- (BOOL) isUser:(NSString *)email;
+- (BOOL) isUser:(NSString *)email theSelector:(SEL)theSelector;
 
 - (void)presentViewController;
+
+- (void)onResponseReceived;
 
 @end
 

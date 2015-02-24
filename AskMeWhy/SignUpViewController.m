@@ -41,9 +41,12 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+
+
 - (void)signInButtonPressed:(UIButton *)sender {
     
     StateVariables *stateVars = [StateVariables sharedInstance];
+    stateVars.selector = @selector(onResponseReceived);
     
     NSLog(@"%@", [self.usernameTextField text]);
     NSLog(@"%@", [self.passwordTextField text]);
@@ -53,24 +56,15 @@
     
     if ([self NSStringIsValidEmail:validatorVariable]) {
         // User create
-        PFObject *user = [PFObject objectWithClassName:@"User"];
-        user[@"username"] = [self.usernameTextField text];
-        user[@"password"] = [self.passwordTextField text];
-    
-        [user saveInBackground];
-        
-        NSLog(@"Success!");
+        [self isUser:validatorVariable theSelector:stateVars.selector];
     } else {
         NSLog(@"Invalid email!");
     }
-    // Do segue
-    //[self performSegueWithIdentifier: @"showMain" sender: self];
-    
-    if (stateVars.signState == 0) {
-        [self isUser:[self.usernameTextField text]];
-    } else {
-        NSLog(@"SIGN UP");
-    }
+}
+
+- (void)onResponseReceived {
+    StateVariables *stateVars = [StateVariables sharedInstance];
+    NSLog(@"%i stateVar BOOL -----", stateVars.hasItems);
 }
 
 - (void)signUpButtonPressed:(UIButton *)sender {
@@ -99,24 +93,52 @@
 // ==================================================================================================================
 
 // Search for user
-- (BOOL) isUser:(NSString *)email {
+- (BOOL) isUser:(NSString *)email theSelector:(SEL)theSelector{
+    
+    StateVariables *stateVars = [StateVariables sharedInstance];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    [query whereKey:@"username" equalTo:[self.usernameTextField text]];
+    [query whereKey:@"username" equalTo:email];
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-            // Do something with the found objects
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
-            }
+            stateVars.hasItems = [query getFirstObject] != nil;
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
+        NSLog(@"%i stateVar BOOL", stateVars.hasItems);
+        
+        if (stateVars.hasItems) {
+            if (stateVars.signState == 0) {
+                NSLog(@"Ok, let's check password...");
+                [query whereKey:@"password" equalTo:[[self passwordTextField] text]];
+                if ([query getFirstObject] != nil) {
+                    NSLog(@"You are alive");
+                }
+            } else {
+                NSLog(@"User is already exists");
+            }
+        } else {
+            if (stateVars.signState == 0) {
+                NSLog(@"Email is does not registred");
+            } else {
+                PFObject *user = [PFObject objectWithClassName:@"User"];
+                user[@"username"] = [self.usernameTextField text];
+                user[@"password"] = [self.passwordTextField text];
+                
+                [user saveInBackground];
+                
+                NSLog(@"User created");
+            }
+        }
+    
     }];
     return NO;
 }
+
+
 
 // Dismiss keyboard
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
