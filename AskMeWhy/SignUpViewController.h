@@ -28,6 +28,8 @@
 @property (nonatomic) IBOutlet UILabel *signUpLabel;
 @property (nonatomic) IBOutlet UIButton *signUpButton;
 
+@property (nonatomic) IBOutlet UILabel *warningLabel;
+
 - (IBAction) signInButtonPressed:(UIButton *)sender;
 - (IBAction) signUpButtonPressed:(UIButton *)sender;
 

@@ -59,6 +59,7 @@
         [self isUser:validatorVariable theSelector:stateVars.selector];
     } else {
         NSLog(@"Invalid email!");
+        [self.warningLabel setText:@"Invalid email"];
     }
 }
 
@@ -113,16 +114,20 @@
         if (stateVars.hasItems) {
             if (stateVars.signState == 0) {
                 NSLog(@"Ok, let's check password...");
+                [self.warningLabel setText:@"Invalid password"];
                 [query whereKey:@"password" equalTo:[[self passwordTextField] text]];
                 if ([query getFirstObject] != nil) {
                     NSLog(@"You are alive");
+                    [self.warningLabel setText:@""];
                 }
             } else {
                 NSLog(@"User is already exists");
+                [self.warningLabel setText:@"User is already exists"];
             }
         } else {
             if (stateVars.signState == 0) {
                 NSLog(@"Email is does not registred");
+                [self.warningLabel setText:@"Email is does not registred"];
             } else {
                 PFObject *user = [PFObject objectWithClassName:@"User"];
                 user[@"username"] = [self.usernameTextField text];
@@ -131,6 +136,7 @@
                 [user saveInBackground];
                 
                 NSLog(@"User created");
+                [self.warningLabel setText:@""];
             }
         }
     

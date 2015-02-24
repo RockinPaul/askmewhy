@@ -62,7 +62,6 @@
                                         </state>
                                         <connections>
                                             <action selector="signInButtonPressed:" destination="age-yr-dGY" eventType="touchUpInside" id="neP-Of-AmG"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="showMain" id="PFR-tk-RVo"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Are you newcomer? Let's" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yr-95-NJN">
@@ -80,6 +79,12 @@
                                             <action selector="signUpButtonPressed:" destination="age-yr-dGY" eventType="touchUpInside" id="b3u-aM-plT"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="WarningLabel" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jUW-ac-K8m">
+                                        <rect key="frame" x="68" y="422" width="253" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.70448704769736847" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -92,11 +97,12 @@
                         <outlet property="signUpButton" destination="5iL-wa-PcU" id="blk-DP-1g7"/>
                         <outlet property="signUpLabel" destination="0yr-95-NJN" id="bvI-vX-bbD"/>
                         <outlet property="usernameTextField" destination="RHK-xn-x8j" id="en3-s5-tDI"/>
+                        <outlet property="warningLabel" destination="jUW-ac-K8m" id="0va-Bz-xRY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9h8-XR-esP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-292" y="197"/>
+            <point key="canvasLocation" x="-316" y="217"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
