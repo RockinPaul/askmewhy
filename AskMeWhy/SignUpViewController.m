@@ -139,7 +139,6 @@
                 [self.warningLabel setText:@""];
             }
         }
-    
     }];
     return NO;
 }
