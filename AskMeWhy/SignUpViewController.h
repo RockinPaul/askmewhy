@@ -12,6 +12,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "StateVariables.h"
+#import "CoreDataAccess.h"
+#import "ViewController.h"
 
 @interface SignUpViewController : UIViewController <UITextFieldDelegate>
 
@@ -30,6 +33,8 @@
 
 - (BOOL) NSStringIsValidEmail:(NSString *)checkString;
 - (BOOL) isUser:(NSString *)email;
+
+- (void)presentViewController;
 
 @end
 

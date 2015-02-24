@@ -18,9 +18,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    //[coreData deleteAllObjectsFromEntity:@"User"];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+//    animated = NO;
+//    CoreDataAccess *coreData = [CoreDataAccess sharedInstance];
+//    [coreData addUser];
+//    
+//    if ([coreData coreDataHasEntriesForEntityName:@"User"]) {
+//        [self presentViewController];
+//    }
+}
+
+- (void)presentViewController {
+    UIStoryboard *storyboard = self.storyboard;
+    ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    
+    // Configure the new view controller here.
+    
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)signInButtonPressed:(UIButton *)sender {
+    
+    StateVariables *stateVars = [StateVariables sharedInstance];
     
     NSLog(@"%@", [self.usernameTextField text]);
     NSLog(@"%@", [self.passwordTextField text]);
@@ -43,18 +66,24 @@
     // Do segue
     //[self performSegueWithIdentifier: @"showMain" sender: self];
     
-    if ([[[self.signInButton titleLabel] text] isEqualToString: @"Sign In"]) {
+    if (stateVars.signState == 0) {
         [self isUser:[self.usernameTextField text]];
+    } else {
+        NSLog(@"SIGN UP");
     }
 }
 
 - (void)signUpButtonPressed:(UIButton *)sender {
+    
+    StateVariables *stateVars = [StateVariables sharedInstance];
     
     [self.signUpLabel setText:nil];
     [self.signUpButton setHidden:YES];
     [self.signInButton setTitle: @"Sign Up" forState: UIControlStateNormal];
     [self.signInButton setTitleColor:[UIColor colorWithRed:(39.0/255) green:(174.0/255) blue:(96.0/255) alpha:0.6 ]forState: UIControlStateNormal];
     [self.signInButton setBackgroundImage:[UIImage imageNamed:@"TextField"] forState:UIControlStateNormal];
+    
+    stateVars.signState = 1; // sign up
 }
 
 // Email validation

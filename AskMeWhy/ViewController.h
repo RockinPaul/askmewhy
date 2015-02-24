@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "CoreDataAccess.h"
 
 @interface ViewController : UIViewController <UITextViewDelegate>
 
@@ -19,6 +20,9 @@
 - (IBAction)askButtonPressed:(UIButton *)sender;
 
 - (void) sendQuestion:(NSString *)question;
+
+- (void)presentViewController;
+
 
 @end
 

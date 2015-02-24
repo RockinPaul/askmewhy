@@ -20,6 +20,22 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    CoreDataAccess *coreData = [CoreDataAccess sharedInstance];
+    
+    [coreData deleteAllObjectsFromEntity:@"User"];
+    [coreData addUser];
+    if (![coreData coreDataHasEntriesForEntityName:@"User"]) {
+        [self presentViewController];
+    }
+}
+
+- (void)presentViewController {
+    UIStoryboard *storyboard = self.storyboard;
+    ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"SignUpViewController"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
