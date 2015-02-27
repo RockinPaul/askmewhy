@@ -48,7 +48,9 @@
 - (void) askButtonPressed:(UIButton *)sender {
     NSString *content = [self.askContent text];
     
-    [self sendQuestion:content];
+    if ((![content length] == 0) && (![content isEqualToString:@"Write something..."])){
+        [self sendQuestion:content];
+    }
     
     NSLog(@"%@", content);
     NSLog(@"Ask button pressed");
@@ -60,7 +62,7 @@
     question[@"content"] = content;
     question[@"parent"] = @"Parent";
     [question saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        [self.askContent setText:@""];
+        [self.askContent setText:@"Write something..."];
     }];
     //[question saveInBackground];
 }
