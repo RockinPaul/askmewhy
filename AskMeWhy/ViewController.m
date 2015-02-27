@@ -23,7 +23,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     CoreDataAccess *coreData = [CoreDataAccess sharedInstance];
     
-    [coreData deleteAllObjectsFromEntity:@"User"];
+    //[coreData deleteAllObjectsFromEntity:@"User"];
     //[coreData addUser];
     if (![coreData coreDataHasEntriesForEntityName:@"User"]) {
         [self presentViewController];
@@ -59,7 +59,10 @@
     PFObject *question = [PFObject objectWithClassName:@"Question"];
     question[@"content"] = content;
     question[@"parent"] = @"Parent";
-    [question saveInBackground];
+    [question saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        [self.askContent setText:@""];
+    }];
+    //[question saveInBackground];
 }
 
 

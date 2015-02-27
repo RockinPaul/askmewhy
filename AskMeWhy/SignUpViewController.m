@@ -97,6 +97,7 @@
 - (BOOL) isUser:(NSString *)email theSelector:(SEL)theSelector{
     
     StateVariables *stateVars = [StateVariables sharedInstance];
+    CoreDataAccess *coreData = [CoreDataAccess sharedInstance];
     
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
     [query whereKey:@"username" equalTo:email];
@@ -119,6 +120,8 @@
                 if ([query getFirstObject] != nil) {
                     NSLog(@"You are alive");
                     [self.warningLabel setText:@""];
+                    [coreData addUser];
+                    [self presentViewController];
                 }
             } else {
                 NSLog(@"User is already exists");
@@ -134,7 +137,8 @@
                 user[@"password"] = [self.passwordTextField text];
                 
                 [user saveInBackground];
-                
+                [coreData addUser];
+            
                 NSLog(@"User created");
                 [self.warningLabel setText:@""];
             }
