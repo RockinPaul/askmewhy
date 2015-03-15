@@ -34,7 +34,7 @@
 
 - (void)presentViewController {
     UIStoryboard *storyboard = self.storyboard;
-    ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    ViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     
     // Configure the new view controller here.
     

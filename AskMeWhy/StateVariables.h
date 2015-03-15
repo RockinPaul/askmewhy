@@ -16,6 +16,7 @@
 @property (nonatomic, readwrite) int signState; // 0 - sign in, 1 - sign up
 @property (nonatomic) SEL selector; // for fucking callback!
 @property (nonatomic) BOOL hasItems; // YES = Parse database has searching item, NO - ... you'll guess it
+@property (nonatomic) long rowNo; // number of cell in tableView
 
 + (StateVariables *)sharedInstance;
 

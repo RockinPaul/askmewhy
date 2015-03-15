@@ -10,9 +10,9 @@
 		E919C62C1A95387300D5D781 /* StateVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = E919C62B1A95387300D5D781 /* StateVariables.m */; };
 		E92CFD1A1A9CC021001E64FA /* CoreDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = E92CFD191A9CC021001E64FA /* CoreDataAccess.m */; };
 		E93E41E81AA11314003775E4 /* ZHCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E93E41E71AA11314003775E4 /* ZHCustomSegue.m */; };
-		E93E41EC1AA120DF003775E4 /* WallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E93E41EB1AA120DF003775E4 /* WallViewController.m */; };
+		E97C6FB41AB61C460095C297 /* CellController.m in Sources */ = {isa = PBXBuildFile; fileRef = E97C6FB31AB61C460095C297 /* CellController.m */; };
+		E97C6FB91AB6229F0095C297 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E97C6FB81AB6229F0095C297 /* TableViewController.m */; };
 		E99497421AA275160026FAD4 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E99497411AA275160026FAD4 /* TabBarController.m */; };
-		E994974A1AA2FE180026FAD4 /* TabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E99497491AA2FE180026FAD4 /* TabBarItem.m */; };
 		E9C81FC81A6BD321008B5291 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C81FC71A6BD321008B5291 /* main.m */; };
 		E9C81FCB1A6BD321008B5291 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C81FCA1A6BD321008B5291 /* AppDelegate.m */; };
 		E9C81FCE1A6BD321008B5291 /* AskMeWhy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E9C81FCC1A6BD321008B5291 /* AskMeWhy.xcdatamodeld */; };
@@ -54,12 +54,12 @@
 		E92CFD191A9CC021001E64FA /* CoreDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataAccess.m; sourceTree = "<group>"; };
 		E93E41E71AA11314003775E4 /* ZHCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHCustomSegue.m; sourceTree = "<group>"; };
 		E93E41E91AA11320003775E4 /* ZHCustomSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCustomSegue.h; sourceTree = "<group>"; };
-		E93E41EA1AA12055003775E4 /* WallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WallViewController.h; sourceTree = "<group>"; };
-		E93E41EB1AA120DF003775E4 /* WallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallViewController.m; sourceTree = "<group>"; };
+		E97C6FB31AB61C460095C297 /* CellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellController.m; sourceTree = "<group>"; };
+		E97C6FB61AB61C7D0095C297 /* CellController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CellController.h; path = ../CellController.h; sourceTree = "<group>"; };
+		E97C6FB71AB6220C0095C297 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		E97C6FB81AB6229F0095C297 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		E99497401AA274CF0026FAD4 /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		E99497411AA275160026FAD4 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
-		E99497431AA2FD1C0026FAD4 /* TabBarItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarItem.h; sourceTree = "<group>"; };
-		E99497491AA2FE180026FAD4 /* TabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarItem.m; sourceTree = "<group>"; };
 		E9C81FC21A6BD321008B5291 /* AskMeWhy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AskMeWhy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C81FC61A6BD321008B5291 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9C81FC71A6BD321008B5291 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -170,15 +170,15 @@
 				E9C81FD51A6BD321008B5291 /* Images.xcassets */,
 				E9C81FD71A6BD321008B5291 /* LaunchScreen.xib */,
 				E9C81FCC1A6BD321008B5291 /* AskMeWhy.xcdatamodeld */,
-				E9C81FC51A6BD321008B5291 /* Supporting Files */,
 				E93E41E71AA11314003775E4 /* ZHCustomSegue.m */,
 				E93E41E91AA11320003775E4 /* ZHCustomSegue.h */,
-				E93E41EA1AA12055003775E4 /* WallViewController.h */,
-				E93E41EB1AA120DF003775E4 /* WallViewController.m */,
+				E97C6FB61AB61C7D0095C297 /* CellController.h */,
+				E97C6FB31AB61C460095C297 /* CellController.m */,
 				E99497401AA274CF0026FAD4 /* TabBarController.h */,
 				E99497411AA275160026FAD4 /* TabBarController.m */,
-				E99497431AA2FD1C0026FAD4 /* TabBarItem.h */,
-				E99497491AA2FE180026FAD4 /* TabBarItem.m */,
+				E97C6FB71AB6220C0095C297 /* TableViewController.h */,
+				E97C6FB81AB6229F0095C297 /* TableViewController.m */,
+				E9C81FC51A6BD321008B5291 /* Supporting Files */,
 			);
 			path = AskMeWhy;
 			sourceTree = "<group>";
@@ -309,14 +309,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E93E41EC1AA120DF003775E4 /* WallViewController.m in Sources */,
+				E97C6FB41AB61C460095C297 /* CellController.m in Sources */,
 				E93E41E81AA11314003775E4 /* ZHCustomSegue.m in Sources */,
 				E9C81FCB1A6BD321008B5291 /* AppDelegate.m in Sources */,
 				E9C81FF01A6BED9E008B5291 /* SignUpViewController.m in Sources */,
 				E9C81FCE1A6BD321008B5291 /* AskMeWhy.xcdatamodeld in Sources */,
 				E9C81FD11A6BD321008B5291 /* ViewController.m in Sources */,
+				E97C6FB91AB6229F0095C297 /* TableViewController.m in Sources */,
 				E9C81FC81A6BD321008B5291 /* main.m in Sources */,
-				E994974A1AA2FE180026FAD4 /* TabBarItem.m in Sources */,
 				E92CFD1A1A9CC021001E64FA /* CoreDataAccess.m in Sources */,
 				E919C62C1A95387300D5D781 /* StateVariables.m in Sources */,
 				E99497421AA275160026FAD4 /* TabBarController.m in Sources */,
