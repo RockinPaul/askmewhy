@@ -64,7 +64,6 @@
     [question saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [self.askContent setText:@"Write something..."];
     }];
-    //[question saveInBackground];
 }
 
 

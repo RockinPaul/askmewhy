@@ -141,6 +141,7 @@
             
                 NSLog(@"User created");
                 [self.warningLabel setText:@""];
+                [self presentViewController];
             }
         }
     }];
@@ -160,6 +161,11 @@
 // Clear and turn back default text in text fields
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     [textField setText:@""];
+    
+    // Adding dots placeholder to password field
+    if ([[textField restorationIdentifier ] isEqual:@"pass"]) {
+        [textField setSecureTextEntry:YES];
+    }
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
@@ -169,6 +175,7 @@
             [textField setText: @"Username"];
         }
         if ([[textField restorationIdentifier]  isEqual: @"pass"]) {
+            [textField setSecureTextEntry:NO];
             [textField setText: @"Password"];
         }
     }

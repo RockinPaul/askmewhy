@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="YU5-nN-jbu">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -113,7 +113,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="568" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kw8-jy-zYu">
@@ -159,10 +159,16 @@
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="questions_button" id="ddq-Od-We4">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" id="p0M-Jv-Ylo"/>
                     <connections>
                         <outlet property="askButton" destination="Q5r-Ye-Uha" id="rxd-Nd-4rb"/>
@@ -171,7 +177,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="432" y="217"/>
+            <point key="canvasLocation" x="429" y="217"/>
+        </scene>
+        <!--TabBarController-->
+        <scene sceneID="fIW-8d-8Wr">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ok-8p-0nE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController storyboardIdentifier="TabBarController" title="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YU5-nN-jbu" customClass="TabBarController" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="XZO-22-Gwt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Zgb-bu-OMf"/>
+                        <segue destination="yTj-fd-YPm" kind="relationship" relationship="viewControllers" id="XZD-k2-pUu"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="786" y="-500"/>
+        </scene>
+        <!--Wall View Controller-->
+        <scene sceneID="9AR-JV-cgr">
+            <objects>
+                <viewController id="yTj-fd-YPm" customClass="WallViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VZ8-tW-iFd"/>
+                        <viewControllerLayoutGuide type="bottom" id="m68-xh-g3F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Clo-km-GX4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qrJ-el-iAn">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.70372907299999998" green="0.85352363460000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="user" id="I6C-WQ-r2e">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="JN7-lA-KgV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wxM-1h-8Ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1132" y="217"/>
         </scene>
     </scenes>
     <resources>
@@ -179,6 +234,7 @@
         <image name="back" width="75" height="75"/>
         <image name="button" width="253" height="63"/>
         <image name="question_body" width="310" height="188"/>
-        <image name="user" width="75" height="75"/>
+        <image name="questions_button" width="37" height="37"/>
+        <image name="user" width="37" height="37"/>
     </resources>
 </document>

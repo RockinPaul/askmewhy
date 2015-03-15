@@ -36,7 +36,8 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     //UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier: @"SignUpViewController"];
-    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier: @"ViewController"];
+    //UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier: @"ViewController"];
+    UIViewController *viewController = [storyboard instantiateViewControllerWithIdentifier: @"TabBarController"];
     
     self.window.rootViewController = viewController;
     [self.window makeKeyAndVisible];
