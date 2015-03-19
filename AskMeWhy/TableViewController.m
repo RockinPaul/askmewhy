@@ -68,6 +68,10 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath: indexPath {
+    return 80.0;
+}
+
 // =============== Header and footer ====================
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 60.0;
