@@ -46,7 +46,7 @@
         
         // create a background image for the cell:
         UIImageView *bgView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        [cell setBackgroundColor:[UIColor greenColor]];
+        [cell setBackgroundColor:[UIColor clearColor]];
         [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
         [cell setBackgroundView:bgView];
         [cell setIndentationWidth:0.0];
@@ -57,8 +57,28 @@
         [nameLabel setBackgroundColor:[UIColor clearColor]]; // transparent label background
         [nameLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
         [nameLabel setText:@"Ololo"];
+        
+        UILabel *questionLabel = [[UILabel alloc] initWithFrame:CGRectMake(50.0, 8.0, 150.0, 80.0)];
+        [questionLabel setTag:2];
+        [questionLabel setBackgroundColor:[UIColor clearColor]];
+        [questionLabel setFont:[UIFont fontWithName:@"Avenir" size: 12.0]];
+        [questionLabel setNumberOfLines: 2];
+        [questionLabel setText: @"Question trololololololololololololololololol\n"];
+        
+        UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(330.0, 25.0, 50.0, 30.0)];
+        [countLabel setTag:3];
+        [countLabel setBackgroundColor:[UIColor clearColor]];
+        [countLabel setFont: [UIFont boldSystemFontOfSize:18.0]];
+        // Count mock
+        int i = 1;
+        NSMutableString *countString = [NSMutableString stringWithString:@"+"];
+        [countString appendString:[NSString stringWithFormat:@"%i", i]];
+        [countLabel setText:countString];
+        
         // custom views should be added as subviews of the cell's contentView:
         [cell.contentView addSubview:nameLabel];
+        [cell.contentView addSubview:questionLabel];
+        [cell.contentView addSubview:countLabel];
     }
     
 //    // Configure the cell:
