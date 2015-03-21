@@ -22,12 +22,18 @@
 //    StateVariables *stateVars = [StateVariables sharedInstance];
 //    stateVars.user = user;
     
+    CoreDataAccess *coreData = [CoreDataAccess sharedInstance];
     StateVariables *stateVars = [StateVariables sharedInstance];
+    
+    stateVars.objectId = [coreData getObjectId];
+    NSLog(@"%@", stateVars.objectId);
+    
     PFQuery *user = [PFQuery queryWithClassName:@"User"];
     [user getObjectInBackgroundWithId:stateVars.objectId block:^(PFObject *user, NSError *error) {
         // Do something with the returned PFObject in the gameScore variable.
         stateVars.user = user;
         NSLog(@"%@", user);
+        
     }];
     
 }

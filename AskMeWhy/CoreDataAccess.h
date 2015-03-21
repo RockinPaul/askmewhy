@@ -20,6 +20,9 @@
 + (CoreDataAccess *) sharedInstance;
 
 - (void) addUser;
+- (NSString *) getObjectId;
+- (void) printEntityContent: (NSString *) entityName forKey:(NSString *) keyName;
+- (void) searchItemFromEntity:(NSString *) entity ForName:(NSString *) name;
 - (BOOL) coreDataHasEntriesForEntityName:(NSString *) entityName;
 - (void) deleteAllObjectsFromEntity: (NSString *) entityName;
 

@@ -26,10 +26,92 @@ static  CoreDataAccess *coreData = nil;
     [newUser setValue: stateVars.email forKey:@"email"];
     [newUser setValue: stateVars.objectId forKey:@"objectId"];
     
+    NSLog(@"%@", stateVars.objectId);
+    
     NSError *error;
     [context save:&error];
     NSLog(@"User added to CoreData!");
 }
+
+- (NSString *) getObjectId {
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    NSString *objectId;
+    
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"User"];
+    [request setEntity:entityDesc];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId != nil"];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    
+    if (error != nil) {
+        NSLog(@"ERROR!");
+    }
+    else {
+        NSString *result = [results firstObject];
+        objectId = [result valueForKey:@"objectId"];
+        NSLog(@"%@", objectId);
+    }
+    
+    return objectId;
+}
+
+- (void) printEntityContent: (NSString *) entityName forKey:(NSString *) keyName {
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:entityName inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:entityName];
+    [request setEntity:entityDesc];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId != nil"];
+    [request setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    
+    if (error != nil) {
+        NSLog(@"ERROR!");
+    }
+    else {
+        for (NSString *result in results) {
+            NSLog(@"%@", [result valueForKey:keyName]);
+        }
+        //NSLog(@"%@", [results description]);
+    }
+}
+
+- (void) searchItemFromEntity:(NSString *) entity ForName:(NSString *) name {
+    
+    AppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+    NSEntityDescription *entityDesc = [NSEntityDescription entityForName:entity inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDesc];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId like %@", name];
+    [request setPredicate:predicate];
+    
+    NSError *error;
+    NSArray *matchingData = [context executeFetchRequest:request error:&error];
+    
+    if(matchingData.count <= 0) {
+        NSLog(@"NO item found");
+    } else {
+        NSString *item;
+        
+        for (NSManagedObject *obj in matchingData) {
+            item = [obj valueForKey:@"objectId"];
+        }
+        NSLog(@"%@", item);
+    }
+}
+
 
 - (BOOL) coreDataHasEntriesForEntityName:(NSString *)entityName {
     
