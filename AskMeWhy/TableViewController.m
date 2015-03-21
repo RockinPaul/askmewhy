@@ -15,7 +15,10 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    [self.tableView setSeparatorColor:[UIColor colorWithRed:126.0/255.0 green:211.0/255.0 blue:33.0/255.0 alpha:100.0]];
 }
+
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -35,10 +38,12 @@
     }
 }
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     return 1;
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
@@ -46,10 +51,11 @@
     return 6;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"%@", indexPath);
 }
+
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,10 +75,11 @@
         [cell setIndentationWidth:0.0];
         
         // create a custom label:                                        x    y   width  height
-        UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20.0, 8.0, 300.0, 30.0)];
+        UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(12.0, 4.0, 300.0, 30.0)];
         [nameLabel setTag:1];
         [nameLabel setBackgroundColor:[UIColor clearColor]]; // transparent label background
-        [nameLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
+        [nameLabel setTextColor:[UIColor colorWithRed:(100.0/255) green:(100.0/255) blue:(100.0/255) alpha:1.0]];
+        [nameLabel setFont:[UIFont boldSystemFontOfSize:13.0]];
         
         // Date
         NSDate* currentDate = [NSDate date];
@@ -94,10 +101,11 @@
         [nameLabel setText:stringFromDate];
         // =========================================
         
-        UILabel *questionLabel = [[UILabel alloc] initWithFrame:CGRectMake(50.0, 8.0, 150.0, 80.0)];
+        UILabel *questionLabel = [[UILabel alloc] initWithFrame:CGRectMake(50.0, 9.0, 150.0, 80.0)];
         [questionLabel setTag:2];
         [questionLabel setBackgroundColor:[UIColor clearColor]];
         [questionLabel setFont:[UIFont fontWithName:@"Avenir" size: 12.0]];
+        [questionLabel setTextColor:[UIColor colorWithRed:(100.0/255) green:(100.0/255) blue:(100.0/255) alpha:100.0]];
         [questionLabel setNumberOfLines: 2];
         [questionLabel setText: @"Question trololololololololololololololololol\n"];
         
@@ -105,6 +113,8 @@
         [countLabel setTag:3];
         [countLabel setBackgroundColor:[UIColor clearColor]];
         [countLabel setFont: [UIFont boldSystemFontOfSize:18.0]];
+        [countLabel setTextColor:[UIColor colorWithRed:(39.0/255) green:(174.0/255) blue:(96.0/255) alpha:1.0]];
+        
         // Count mock
         int i = 1;
         NSMutableString *countString = [NSMutableString stringWithString:@"+"];
@@ -124,14 +134,17 @@
     return cell;
 }
 
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath: indexPath {
     return 80.0;
 }
+
 
 // =============== Header and footer ====================
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 60.0;
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0.0;
