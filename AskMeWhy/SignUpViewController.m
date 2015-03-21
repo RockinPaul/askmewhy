@@ -133,8 +133,10 @@
                 [self.warningLabel setText:@"Email is does not registred"];
             } else {
                 PFObject *user = [PFObject objectWithClassName:@"User"];
+                StateVariables *stateVars = [StateVariables sharedInstance];
                 user[@"username"] = [self.usernameTextField text];
                 user[@"password"] = [self.passwordTextField text];
+                stateVars.user = user;
                 
                 [user saveInBackground];
                 [coreData addUser];

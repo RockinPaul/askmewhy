@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "CoreDataAccess.h"
+#import "StateVariables.h"
 
 @interface ViewController : UIViewController <UITextViewDelegate>
 

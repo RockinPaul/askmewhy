@@ -18,6 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    PFObject *user = [PFObject objectWithClassName:@"User"];
+    StateVariables *stateVars = [StateVariables sharedInstance];
+    stateVars.user = user;
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -59,8 +63,9 @@
 // Create new question in Parse
 - (void) sendQuestion:(NSString *)content {
     PFObject *question = [PFObject objectWithClassName:@"Question"];
+    StateVariables *stateVars = [StateVariables sharedInstance];
     question[@"content"] = content;
-    question[@"parent"] = @"Parent";
+    question[@"parent"] = stateVars.user;
     [question saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [self.askContent setText:@"Write something..."];
     }];
