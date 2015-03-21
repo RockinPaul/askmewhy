@@ -15,10 +15,23 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Remove seperator inset
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
     
+    // Prevent the cell from inheriting the Table View's margin settings
+    if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [cell setPreservesSuperviewLayoutMargins:NO];
+    }
     
-    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    // Explictly set your cell's layout margins
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
     }
 }
 
@@ -56,7 +69,26 @@
         [nameLabel setTag:1];
         [nameLabel setBackgroundColor:[UIColor clearColor]]; // transparent label background
         [nameLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
-        [nameLabel setText:@"Ololo"];
+        
+        // Date
+        NSDate* currentDate = [NSDate date];
+        NSTimeZone* currentTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
+        NSTimeZone* nowTimeZone = [NSTimeZone systemTimeZone];
+        
+        NSInteger currentGMTOffset = [currentTimeZone secondsFromGMTForDate:currentDate];
+        NSInteger nowGMTOffset = [nowTimeZone secondsFromGMTForDate:currentDate];
+        
+        NSTimeInterval interval = nowGMTOffset - currentGMTOffset;
+        NSDate* nowDate = [[NSDate alloc] initWithTimeInterval:interval sinceDate:currentDate];
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"dd.MM.yyyy"];
+        
+//        //Optionally for time zone conversions
+//        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+        NSString *stringFromDate = [formatter stringFromDate:nowDate];
+        [nameLabel setText:stringFromDate];
+        // =========================================
         
         UILabel *questionLabel = [[UILabel alloc] initWithFrame:CGRectMake(50.0, 8.0, 150.0, 80.0)];
         [questionLabel setTag:2];

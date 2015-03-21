@@ -134,12 +134,6 @@
                                             <action selector="askButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ro5-Qp-Loe"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhC-VQ-aM2">
-                                        <rect key="frame" x="269" y="43" width="73" height="71"/>
-                                        <state key="normal" image="user">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DC6-ZH-B4U">
                                         <rect key="frame" x="32" y="43" width="73" height="71"/>
                                         <state key="normal" image="back">
@@ -239,7 +233,7 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="JN7-lA-KgV"/>
                     <connections>
-                        <outlet property="tableView" destination="gRp-zf-D5i" id="YQS-26-zhV"/>
+                        <outlet property="tableView" destination="gRp-zf-D5i" id="1n7-Xm-dn6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wxM-1h-8Ui" userLabel="First Responder" sceneMemberID="firstResponder"/>
