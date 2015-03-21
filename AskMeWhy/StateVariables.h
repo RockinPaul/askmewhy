@@ -20,7 +20,9 @@
 @property (nonatomic) BOOL hasItems; // YES = Parse database has searching item, NO - ... you'll guess it
 @property (nonatomic) long rowNo; // number of cell in tableView
 
+// Parse one-to-many features
 @property (nonatomic) NSString *email; // for CoreData in one-to-many Parse relationship
+@property (nonatomic) NSString *objectId;
 @property (nonatomic) PFObject *user; // for one-to-many relationship
 
 + (StateVariables *)sharedInstance;

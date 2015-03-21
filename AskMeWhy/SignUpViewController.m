@@ -117,16 +117,18 @@
                 NSLog(@"Ok, let's check password...");
                 [self.warningLabel setText:@"Invalid password"];
                 [query whereKey:@"password" equalTo:[[self passwordTextField] text]];
-                if ([query getFirstObject] != nil) {
+                PFObject *user = [query getFirstObject];
+                if (user != nil) {
                     NSLog(@"You are alive");
+                    
+//                    PFObject *user = [PFObject objectWithClassName:@"User"];
+//                    user[@"username"] = [self.usernameTextField text];
+//                    user[@"password"] = [self.passwordTextField text];
                     
                     StateVariables *stateVars = [StateVariables sharedInstance];
                     stateVars.email = [self.usernameTextField text];
-                    
-                    PFObject *user = [PFObject objectWithClassName:@"User"];
                     stateVars.user = user;
-                    user[@"username"] = [self.usernameTextField text];
-                    user[@"password"] = [self.passwordTextField text];
+                    stateVars.objectId = [user objectId];
                     
                     [self.warningLabel setText:@""];
                     [coreData addUser];
@@ -147,6 +149,7 @@
                 user[@"password"] = [self.passwordTextField text];
                 stateVars.user = user;
                 stateVars.email = [self.usernameTextField text];
+                stateVars.objectId = [user objectId];
                 
                 [user saveInBackground];
                 [coreData addUser];

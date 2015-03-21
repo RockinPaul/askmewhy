@@ -24,6 +24,7 @@ static  CoreDataAccess *coreData = nil;
     StateVariables *stateVars = [StateVariables sharedInstance];
     [newUser setValue: @YES forKey:@"exists"];
     [newUser setValue: stateVars.email forKey:@"email"];
+    [newUser setValue: stateVars.objectId forKey:@"objectId"];
     
     NSError *error;
     [context save:&error];
