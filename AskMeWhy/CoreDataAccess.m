@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CoreDataAccess.h"
+#import "StateVariables.h"
 
 @implementation CoreDataAccess
 
@@ -20,11 +21,13 @@ static  CoreDataAccess *coreData = nil;
     NSEntityDescription *entityDesc = [NSEntityDescription entityForName:@"User" inManagedObjectContext:context];
     NSManagedObject *newUser = [[NSManagedObject alloc] initWithEntity:entityDesc insertIntoManagedObjectContext:context];
     
+    StateVariables *stateVars = [StateVariables sharedInstance];
     [newUser setValue: @YES forKey:@"exists"];
+    [newUser setValue: stateVars.email forKey:@"email"];
     
     NSError *error;
     [context save:&error];
-    NSLog(@"User added!");
+    NSLog(@"User added to CoreData!");
 }
 
 - (BOOL) coreDataHasEntriesForEntityName:(NSString *)entityName {

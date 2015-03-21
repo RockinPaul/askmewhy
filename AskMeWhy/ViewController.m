@@ -17,10 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    PFObject *user = [PFObject objectWithClassName:@"User"];
-    StateVariables *stateVars = [StateVariables sharedInstance];
-    stateVars.user = user;
+//    
+//    PFObject *user = [PFObject objectWithClassName:@"User"];
+//    StateVariables *stateVars = [StateVariables sharedInstance];
+//    stateVars.user = user;
     
 }
 

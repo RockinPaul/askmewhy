@@ -119,6 +119,15 @@
                 [query whereKey:@"password" equalTo:[[self passwordTextField] text]];
                 if ([query getFirstObject] != nil) {
                     NSLog(@"You are alive");
+                    
+                    StateVariables *stateVars = [StateVariables sharedInstance];
+                    stateVars.email = [self.usernameTextField text];
+                    
+                    PFObject *user = [PFObject objectWithClassName:@"User"];
+                    stateVars.user = user;
+                    user[@"username"] = [self.usernameTextField text];
+                    user[@"password"] = [self.passwordTextField text];
+                    
                     [self.warningLabel setText:@""];
                     [coreData addUser];
                     [self presentViewController];
@@ -137,6 +146,7 @@
                 user[@"username"] = [self.usernameTextField text];
                 user[@"password"] = [self.passwordTextField text];
                 stateVars.user = user;
+                stateVars.email = [self.usernameTextField text];
                 
                 [user saveInBackground];
                 [coreData addUser];
