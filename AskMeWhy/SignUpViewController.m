@@ -120,11 +120,7 @@
                 PFObject *user = [query getFirstObject];
                 if (user != nil) {
                     NSLog(@"You are alive");
-                    
-//                    PFObject *user = [PFObject objectWithClassName:@"User"];
-//                    user[@"username"] = [self.usernameTextField text];
-//                    user[@"password"] = [self.passwordTextField text];
-                    
+
                     StateVariables *stateVars = [StateVariables sharedInstance];
                     stateVars.email = [self.usernameTextField text];
                     stateVars.user = user;
@@ -149,11 +145,30 @@
                 user[@"password"] = [self.passwordTextField text];
                 stateVars.user = user;
                 stateVars.email = [self.usernameTextField text];
-                stateVars.objectId = [user objectId];
                 
-                [user saveInBackground];
-                [coreData addUser];
-            
+                [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    
+                    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+                    [query whereKey:@"username" equalTo:email];
+                    
+                    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                        
+                        if (!error) {
+                            stateVars.hasItems = [query getFirstObject] != nil;
+                        } else {
+                            // Log details of the failure
+                            NSLog(@"Error: %@ %@", error, [error userInfo]);
+                        }
+
+                        [query whereKey:@"password" equalTo:[[self passwordTextField] text]];
+                        PFObject *user = [query getFirstObject];
+                        
+                        stateVars.objectId = [user objectId];
+                        stateVars.user = user;
+                    }];
+                    [coreData addUser];
+                }];
+                
                 NSLog(@"User created");
                 [self.warningLabel setText:@""];
                 [self presentViewController];

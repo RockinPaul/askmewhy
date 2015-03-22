@@ -42,7 +42,7 @@
     CoreDataAccess *coreData = [CoreDataAccess sharedInstance];
     
     //[coreData deleteAllObjectsFromEntity:@"User"];
-    //[coreData addUser];
+    
     if (![coreData coreDataHasEntriesForEntityName:@"User"]) {
         [self presentViewController];
     }
