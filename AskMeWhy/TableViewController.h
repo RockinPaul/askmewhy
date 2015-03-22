@@ -22,6 +22,9 @@
 @property (nonatomic, strong) NSMutableArray *questionsArray;
 @property (nonatomic, strong) NSMutableArray *dateArray;
 
+@property (nonatomic, strong) IBOutlet UITextView *questionTextView;
+@property (nonatomic, strong) IBOutlet UITextView *answerTextView;
+
 -(void) getTableInfo;
 
 @end

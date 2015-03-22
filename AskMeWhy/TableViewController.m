@@ -52,18 +52,14 @@
             date = [obj valueForKey:@"createdAt"];
             question = [obj valueForKey:@"content"];
             
-            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-            [formatter setDateFormat:@"dd.MM.yyyy"];
-            NSString *stringFromDate = [formatter stringFromDate:date];
             
             [self.questionsArray addObject:question];
             [self.dateArray addObject:date];
-            NSLog(@"question - %@, date - %@", question, stringFromDate);
         }
         NSLog(@"%@", [self.questionsArray description]);
         NSLog(@"%@", [self.dateArray description]);
         
-        [self.tableView reloadData];
+        [self.tableView reloadData]; // for loading new data from arrays
     }];
 }
 
@@ -136,22 +132,12 @@
         [nameLabel setFont:[UIFont boldSystemFontOfSize:13.0]];
         
         // Date
-        NSDate* currentDate = [NSDate date];
-        NSTimeZone* currentTimeZone = [NSTimeZone timeZoneWithAbbreviation:@"GMT"];
-        NSTimeZone* nowTimeZone = [NSTimeZone systemTimeZone];
-        
-        NSInteger currentGMTOffset = [currentTimeZone secondsFromGMTForDate:currentDate];
-        NSInteger nowGMTOffset = [nowTimeZone secondsFromGMTForDate:currentDate];
-        
-        NSTimeInterval interval = nowGMTOffset - currentGMTOffset;
-        NSDate* nowDate = [[NSDate alloc] initWithTimeInterval:interval sinceDate:currentDate];
+        NSDate* date = [self.dateArray objectAtIndex:indexPath.row];
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"dd.MM.yyyy"];
         
-//        //Optionally for time zone conversions
-//        [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
-        NSString *stringFromDate = [formatter stringFromDate:nowDate];
+        NSString *stringFromDate = [formatter stringFromDate:date];
         [nameLabel setText:stringFromDate];
         // =========================================
         
