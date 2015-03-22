@@ -53,7 +53,12 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     NSLog(@"%@", indexPath);
+    
+//    PFQuery *query = [PFQuery queryWithClassName:@"Answer"];
+//    [query whereKey:@"user" equalTo:objectId];
+    
 }
 
 

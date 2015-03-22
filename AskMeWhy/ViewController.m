@@ -25,14 +25,15 @@
     CoreDataAccess *coreData = [CoreDataAccess sharedInstance];
     StateVariables *stateVars = [StateVariables sharedInstance];
     
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
     stateVars.objectId = [coreData getObjectId];
-    NSLog(@"%@", stateVars.objectId);
-    
-    PFQuery *user = [PFQuery queryWithClassName:@"User"];
-    [user getObjectInBackgroundWithId:stateVars.objectId block:^(PFObject *user, NSError *error) {
-        // Do something with the returned PFObject in the gameScore variable.
+
+    [query getObjectInBackgroundWithId:stateVars.objectId block:^(PFObject *user, NSError *error) {
+        // Do something with the returned PFObject in the user variable.
+        
         stateVars.user = user;
-        NSLog(@"%@", user);
+        NSLog(@"%@ ID", stateVars.objectId);
+        NSLog(@"%@ USER", [user description]);
         
     }];
     

@@ -165,8 +165,9 @@
                         
                         stateVars.objectId = [user objectId];
                         stateVars.user = user;
+                        
+                        [coreData addUser];
                     }];
-                    [coreData addUser];
                 }];
                 
                 NSLog(@"User created");

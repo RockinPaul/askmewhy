@@ -12,6 +12,7 @@
 #endif
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface TableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
