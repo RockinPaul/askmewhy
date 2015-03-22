@@ -245,6 +245,8 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="JN7-lA-KgV"/>
                     <connections>
+                        <outlet property="answerTextView" destination="aDa-95-TYR" id="4Ns-t0-b1R"/>
+                        <outlet property="questionTextView" destination="nAd-WS-ywa" id="HMW-9D-flC"/>
                         <outlet property="tableView" destination="gRp-zf-D5i" id="1n7-Xm-dn6"/>
                     </connections>
                 </viewController>

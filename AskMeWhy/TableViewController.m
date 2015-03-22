@@ -92,17 +92,15 @@
     // Return the number of rows in the section.
     NSLog(@"%lu", (unsigned long)[self.questionsArray count]);
     return [self.questionsArray count];
-    //return 6;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSLog(@"%@", indexPath);
+    [self.questionTextView setText: [self.questionsArray objectAtIndex:indexPath.row]];
+    [self.answerTextView setText: @"Поле сдается"];
     
-//    PFQuery *query = [PFQuery queryWithClassName:@"Answer"];
-//    [query whereKey:@"user" equalTo:objectId];
-    
+    NSLog(@"%ld", (long)indexPath.row);
 }
 
 
@@ -168,11 +166,6 @@
         [cell.contentView addSubview:questionLabel];
         [cell.contentView addSubview:countLabel];
     }
-    
-//    // Configure the cell:
-//    ((UIImageView *)cell.backgroundView).image = [UIImage imageNamed:@"awardbg.png"];
-//    [(UILabel *)[cell.contentView viewWithTag:1] setText:[data1 objectAtIndex:indexPath.row]];
-//    
     return cell;
 }
 
@@ -189,7 +182,7 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0.0;
+    return 56.0; //49.0 for iOS 8
 }
 
 @end
