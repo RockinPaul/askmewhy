@@ -22,4 +22,6 @@
 @property (nonatomic, strong) NSMutableArray *questionsArray;
 @property (nonatomic, strong) NSMutableArray *dateArray;
 
+-(void) getTableInfo;
+
 @end

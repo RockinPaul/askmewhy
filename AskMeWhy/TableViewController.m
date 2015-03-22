@@ -15,10 +15,20 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
     [self.tableView setSeparatorColor:[UIColor colorWithRed:126.0/255.0 green:211.0/255.0 blue:33.0/255.0 alpha:100.0]];
     
+    [self getTableInfo];
+
+}
+
+- (void) getTableInfo {
+    
     StateVariables *stateVars = [StateVariables sharedInstance];
- 
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Question"];
     [query whereKey:@"parent" equalTo: stateVars.user];
     
@@ -52,16 +62,17 @@
         }
         NSLog(@"%@", [self.questionsArray description]);
         NSLog(@"%@", [self.dateArray description]);
+        
+        [self.tableView reloadData];
     }];
 }
 
-
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Remove seperator inset
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsZero];
-    }
+//    // Remove seperator inset
+//    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+//        [cell setSeparatorInset:UIEdgeInsetsZero];
+//    } DEPRECATED
     
     // Prevent the cell from inheriting the Table View's margin settings
     if ([cell respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
@@ -101,6 +112,7 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     
     static NSString *CellIdentifier = @"Cell";
     
@@ -149,7 +161,9 @@
         [questionLabel setFont:[UIFont fontWithName:@"Avenir" size: 12.0]];
         [questionLabel setTextColor:[UIColor colorWithRed:(100.0/255) green:(100.0/255) blue:(100.0/255) alpha:100.0]];
         [questionLabel setNumberOfLines: 2];
-        [questionLabel setText: @"Question trololololololololololololololololol\n"];
+        
+        NSString *cellValue = [self.questionsArray objectAtIndex:indexPath.row];
+        [questionLabel setText: cellValue];
         
         UILabel *countLabel = [[UILabel alloc] initWithFrame:CGRectMake(330.0, 25.0, 50.0, 30.0)];
         [countLabel setTag:3];
