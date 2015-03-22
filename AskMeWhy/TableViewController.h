@@ -19,6 +19,7 @@
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) NSDictionary *questionsDictionary;
+@property (nonatomic, strong) NSMutableArray *questionsArray;
+@property (nonatomic, strong) NSMutableArray *dateArray;
 
 @end

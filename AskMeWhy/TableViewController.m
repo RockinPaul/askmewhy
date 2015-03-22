@@ -17,11 +17,13 @@
     self.tableView.dataSource = self;
     [self.tableView setSeparatorColor:[UIColor colorWithRed:126.0/255.0 green:211.0/255.0 blue:33.0/255.0 alpha:100.0]];
     
-    self.questionsDictionary = [NSDictionary dictionary];
     StateVariables *stateVars = [StateVariables sharedInstance];
-    
+ 
     PFQuery *query = [PFQuery queryWithClassName:@"Question"];
     [query whereKey:@"parent" equalTo: stateVars.user];
+    
+    self.questionsArray = [[NSMutableArray alloc] init];
+    self.dateArray = [[NSMutableArray alloc] init];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         
@@ -36,14 +38,21 @@
         NSString *question;
         
         for (PFObject *obj in objects) {
+            
             date = [obj valueForKey:@"createdAt"];
             question = [obj valueForKey:@"content"];
             
-            //[self.questionsDictionary setValue:question forKey:(NSString *)date];
-            NSLog(@"question - %@, date - %@", question, date);
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"dd.MM.yyyy"];
+            NSString *stringFromDate = [formatter stringFromDate:date];
+            
+            [self.questionsArray addObject:question];
+            [self.dateArray addObject:date];
+            NSLog(@"question - %@, date - %@", question, stringFromDate);
         }
+        NSLog(@"%@", [self.questionsArray description]);
+        NSLog(@"%@", [self.dateArray description]);
     }];
-    
 }
 
 
@@ -74,8 +83,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    
-    return 6;
+    NSLog(@"%lu", (unsigned long)[self.questionsArray count]);
+    return [self.questionsArray count];
+    //return 6;
 }
 
 
