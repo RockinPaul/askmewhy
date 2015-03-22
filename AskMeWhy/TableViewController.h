@@ -13,9 +13,12 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "StateVariables.h"
 
 @interface TableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) NSDictionary *questionsDictionary;
 
 @end

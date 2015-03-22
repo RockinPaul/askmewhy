@@ -15,8 +15,35 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
     [self.tableView setSeparatorColor:[UIColor colorWithRed:126.0/255.0 green:211.0/255.0 blue:33.0/255.0 alpha:100.0]];
+    
+    self.questionsDictionary = [NSDictionary dictionary];
+    StateVariables *stateVars = [StateVariables sharedInstance];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Question"];
+    [query whereKey:@"parent" equalTo: stateVars.user];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (!error) {
+            stateVars.hasItems = [query getFirstObject] != nil;
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        
+        NSDate *date;
+        NSString *question;
+        
+        for (PFObject *obj in objects) {
+            date = [obj valueForKey:@"createdAt"];
+            question = [obj valueForKey:@"content"];
+            
+            //[self.questionsDictionary setValue:question forKey:(NSString *)date];
+            NSLog(@"question - %@, date - %@", question, date);
+        }
+    }];
+    
 }
 
 
