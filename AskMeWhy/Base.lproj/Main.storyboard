@@ -134,12 +134,6 @@
                                             <action selector="askButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ro5-Qp-Loe"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DC6-ZH-B4U">
-                                        <rect key="frame" x="32" y="43" width="73" height="71"/>
-                                        <state key="normal" image="back">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" text="Write something..." translatesAutoresizingMaskIntoConstraints="NO" id="I6W-p7-nPT">
                                         <rect key="frame" x="37" y="160" width="300" height="188"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -243,7 +237,6 @@
     </scenes>
     <resources>
         <image name="TextField" width="253" height="57"/>
-        <image name="back" width="75" height="75"/>
         <image name="button" width="253" height="63"/>
         <image name="question_body" width="310" height="188"/>
         <image name="questions_button" width="37" height="37"/>

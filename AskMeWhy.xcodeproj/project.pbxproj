@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		E919C62C1A95387300D5D781 /* StateVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = E919C62B1A95387300D5D781 /* StateVariables.m */; };
 		E92CFD1A1A9CC021001E64FA /* CoreDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = E92CFD191A9CC021001E64FA /* CoreDataAccess.m */; };
-		E93E41E81AA11314003775E4 /* ZHCustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = E93E41E71AA11314003775E4 /* ZHCustomSegue.m */; };
-		E97C6FB41AB61C460095C297 /* CellController.m in Sources */ = {isa = PBXBuildFile; fileRef = E97C6FB31AB61C460095C297 /* CellController.m */; };
 		E97C6FB91AB6229F0095C297 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E97C6FB81AB6229F0095C297 /* TableViewController.m */; };
 		E99497421AA275160026FAD4 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E99497411AA275160026FAD4 /* TabBarController.m */; };
 		E9C81FC81A6BD321008B5291 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9C81FC71A6BD321008B5291 /* main.m */; };
@@ -52,10 +50,6 @@
 		E919C62B1A95387300D5D781 /* StateVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StateVariables.m; sourceTree = "<group>"; };
 		E92CFD181A9CBF35001E64FA /* CoreDataAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataAccess.h; sourceTree = "<group>"; };
 		E92CFD191A9CC021001E64FA /* CoreDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataAccess.m; sourceTree = "<group>"; };
-		E93E41E71AA11314003775E4 /* ZHCustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZHCustomSegue.m; sourceTree = "<group>"; };
-		E93E41E91AA11320003775E4 /* ZHCustomSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHCustomSegue.h; sourceTree = "<group>"; };
-		E97C6FB31AB61C460095C297 /* CellController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellController.m; sourceTree = "<group>"; };
-		E97C6FB61AB61C7D0095C297 /* CellController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CellController.h; path = ../CellController.h; sourceTree = "<group>"; };
 		E97C6FB71AB6220C0095C297 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		E97C6FB81AB6229F0095C297 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		E99497401AA274CF0026FAD4 /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
@@ -166,18 +160,14 @@
 				E9C81FEF1A6BED9E008B5291 /* SignUpViewController.m */,
 				E92CFD181A9CBF35001E64FA /* CoreDataAccess.h */,
 				E92CFD191A9CC021001E64FA /* CoreDataAccess.m */,
-				E9C81FD21A6BD321008B5291 /* Main.storyboard */,
-				E9C81FD51A6BD321008B5291 /* Images.xcassets */,
-				E9C81FD71A6BD321008B5291 /* LaunchScreen.xib */,
-				E9C81FCC1A6BD321008B5291 /* AskMeWhy.xcdatamodeld */,
-				E93E41E71AA11314003775E4 /* ZHCustomSegue.m */,
-				E93E41E91AA11320003775E4 /* ZHCustomSegue.h */,
-				E97C6FB61AB61C7D0095C297 /* CellController.h */,
-				E97C6FB31AB61C460095C297 /* CellController.m */,
 				E99497401AA274CF0026FAD4 /* TabBarController.h */,
 				E99497411AA275160026FAD4 /* TabBarController.m */,
 				E97C6FB71AB6220C0095C297 /* TableViewController.h */,
 				E97C6FB81AB6229F0095C297 /* TableViewController.m */,
+				E9C81FD21A6BD321008B5291 /* Main.storyboard */,
+				E9C81FD51A6BD321008B5291 /* Images.xcassets */,
+				E9C81FD71A6BD321008B5291 /* LaunchScreen.xib */,
+				E9C81FCC1A6BD321008B5291 /* AskMeWhy.xcdatamodeld */,
 				E9C81FC51A6BD321008B5291 /* Supporting Files */,
 			);
 			path = AskMeWhy;
@@ -309,8 +299,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E97C6FB41AB61C460095C297 /* CellController.m in Sources */,
-				E93E41E81AA11314003775E4 /* ZHCustomSegue.m in Sources */,
 				E9C81FCB1A6BD321008B5291 /* AppDelegate.m in Sources */,
 				E9C81FF01A6BED9E008B5291 /* SignUpViewController.m in Sources */,
 				E9C81FCE1A6BD321008B5291 /* AskMeWhy.xcdatamodeld in Sources */,
