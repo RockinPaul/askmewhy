@@ -122,7 +122,7 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+    //if (cell == nil) {
         // allocate the cell:
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: CellIdentifier];
         
@@ -176,7 +176,7 @@
         [cell.contentView addSubview:nameLabel];
         [cell.contentView addSubview:questionLabel];
         [cell.contentView addSubview:countLabel];
-    }
+    //}
     return cell;
 }
 
