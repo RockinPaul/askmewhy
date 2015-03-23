@@ -18,6 +18,7 @@
 @interface TableViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *tableView;
+@property (nonatomic) BOOL isStopUdating;
 
 @property (nonatomic, strong) NSMutableArray *questionsArray;
 @property (nonatomic, strong) NSMutableArray *dateArray;

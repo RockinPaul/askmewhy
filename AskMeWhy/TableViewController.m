@@ -21,8 +21,19 @@
     }
     [self.tableView setSeparatorColor:[UIColor colorWithRed:126.0/255.0 green:211.0/255.0 blue:33.0/255.0 alpha:100.0]];
     
-    [self getTableInfo];
+    NSTimer* myTimer = [NSTimer scheduledTimerWithTimeInterval: 5.0 target: self
+                                                      selector: @selector(callAfterFiveSecond:) userInfo: nil repeats: YES];
+    [self callAfterFiveSecond:myTimer];
+}
 
+-(void) callAfterFiveSecond:(NSTimer*) timer {
+    
+    if(self.isStopUdating)
+    {
+        [timer invalidate];
+    }
+    [self getTableInfo];
+    
 }
 
 - (void) getTableInfo {
