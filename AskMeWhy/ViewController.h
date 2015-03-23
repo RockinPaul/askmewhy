@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "CoreDataAccess.h"
+#import "StateVariables.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextViewDelegate>
 
 @property (nonatomic) IBOutlet UIButton *questionsButton;
 @property (nonatomic) IBOutlet UIButton *askButton;
@@ -16,6 +19,11 @@
 
 - (IBAction)questionsButtonPressed:(UIButton *)sender;
 - (IBAction)askButtonPressed:(UIButton *)sender;
+
+- (void) sendQuestion:(NSString *)question;
+
+- (void)presentViewController;
+
 
 @end
 

@@ -11,14 +11,36 @@
 #endif
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+#import "StateVariables.h"
+#import "CoreDataAccess.h"
+#import "ViewController.h"
 
-@interface SignUpViewController : UIViewController
+@interface SignUpViewController : UIViewController <UITextFieldDelegate>
+
+@property (nonatomic, assign) id currentResponder; // current responder
+
+@property (nonatomic) IBOutlet UIScrollView *scrollView;
 
 @property (nonatomic) IBOutlet UITextField *usernameTextField;
 @property (nonatomic) IBOutlet UITextField *passwordTextField;
+@property (nonatomic) IBOutlet UIButton *signInButton;
+@property (nonatomic) IBOutlet UILabel *signUpLabel;
 @property (nonatomic) IBOutlet UIButton *signUpButton;
 
-- (IBAction)signUpButtonPressed:(UIButton *)sender;
+@property (nonatomic) IBOutlet UILabel *warningLabel;
+
+- (IBAction) signInButtonPressed:(UIButton *)sender;
+- (IBAction) signUpButtonPressed:(UIButton *)sender;
+
+- (BOOL) NSStringIsValidEmail:(NSString *)checkString;
+
+//- (BOOL) isUser:(NSString *)email;
+- (BOOL) isUser:(NSString *)email theSelector:(SEL)theSelector;
+
+- (void)presentViewController;
+
+- (void)onResponseReceived;
 
 @end
 
