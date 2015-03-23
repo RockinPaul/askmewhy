@@ -22,6 +22,8 @@
     StateVariables *stateVars = [StateVariables sharedInstance];
     
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    [query fromLocalDatastore];
+    
     stateVars.objectId = [coreData getObjectId];
 
     [query getObjectInBackgroundWithId:stateVars.objectId block:^(PFObject *user, NSError *error) {

@@ -106,6 +106,7 @@
         
         if (!error) {
             stateVars.hasItems = [query getFirstObject] != nil;
+            [PFObject pinAll:objects];
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -155,6 +156,7 @@
                         
                         if (!error) {
                             stateVars.hasItems = [query getFirstObject] != nil;
+                            [PFObject pinAll:objects];
                         } else {
                             // Log details of the failure
                             NSLog(@"Error: %@ %@", error, [error userInfo]);
